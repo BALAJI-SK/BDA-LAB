@@ -1,22 +1,6 @@
 cqlsh> drop keyspace libaray134;
 cqlsh> create keyspace library134 with replication ={ 'class' : 'SimpleStrategy','replication_factor': 1};
 cqlsh> use library134;
-cqlsh:library134> CREATE table library-WITH CLUSTERING ORDER BY (salary ASC)
-              ... 
-cqlsh:library134> Create table library_info (stud_id int, counter_value counter , stud_name text, book_name text, book_id int ,date_of_issue timeWITH CLUSTERING ORDER BY (salary ASC)
-              ... ;
-SyntaxException: line 1:132 mismatched input 'CLUSTERING' expecting ')' (... book_id int ,date_of_issue timeWITH [CLUSTERING]...)
-cqlsh:library134> Create table library_info (stud_id int, counter_value counter , stud_name text, book_name text, book_id int ,date_of_issue timestamp , Primary key ( stud_id ));
-InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot mix counter and non counter columns in the same table"
-cqlsh:library134>  Create table library_info (stud_id int, counter_value counter , stud_name text, book_name text, book_id int ,date_of_issue timestamp , Primary key ( stud_id ));
-InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot mix counter and non counter columns in the same table"
-cqlsh:library134>  Create table library_info (stud_id int, stud_name text, book_name text, book_id int ,date_of_issue timestamp , Primary key ( stud_id ));
-cqlsh:library134> Begin batch
-              ... insert into library_info ( stud_id,stud_name, book_name,book_id,date_of_issue) values (003,'Shyam','IKIGAI',2341,'2019-03-09');
-              ... 
-cqlsh:library134> drop library_info;
-SyntaxException: line 1:5 no viable alternative at input 'library_info' ([drop] library_info...)
-cqlsh:library134> drop table library_info;
 cqlsh:library134> Create table library_info (stud_id int, stud_name text, counter_val counter, book_name text, book_id int ,date_of_issue timestamp , Primary key ( stud_id,stud_name,book_name,book_id,date_of_issue ));
 cqlsh:library134> Begin batch
               ... insert into library_info ( stud_id,stud_name, book_name,book_id,date_of_issue) values (003,'Shyam','IKIGAI',2341,'2019-03-09');
